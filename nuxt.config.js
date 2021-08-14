@@ -55,8 +55,6 @@ export default {
     '@nuxtjs/date-fns',
     // https://color-mode.nuxtjs.org
     '@nuxtjs/color-mode',
-    // https://github.com/nuxt/vercel-builder
-    '@nuxtjs/vercel-builder',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
