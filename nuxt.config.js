@@ -129,6 +129,7 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     babel: {
+      compact: false, // Avoid a problem working with virtual file system for pdfmake
       plugins: [['@babel/plugin-proposal-private-methods', { loose: true }]],
     },
     extend(config, context) {
