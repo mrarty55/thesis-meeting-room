@@ -5,7 +5,7 @@ require('dotenv').config()
 export default {
   // Server config
   server: {
-    host: '0.0.0.0',
+    host: process.env.NODE_ENV !== 'production' ? '0.0.0.0' : '127.0.0.1',
     port: 4000,
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
