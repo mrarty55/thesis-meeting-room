@@ -3,6 +3,8 @@ import * as Cookies from 'js-cookie'
 import cookie from 'cookie'
 
 export default ({ store, req }) => {
+  // eslint-disable-next-line no-console
+  console.log(`NODE_ENV: ${process.env.NODE_ENV}`)
   createPersistedState({
     paths: [
       'user.auth.id',
@@ -28,6 +30,7 @@ export default ({ store, req }) => {
         Cookies.set(key, value, {
           expires: 1 / 24,
           secure: process.env.NODE_ENV === 'production',
+          sameSite: 'Strict',
         }),
       removeItem: (key) => Cookies.remove(key),
     },
