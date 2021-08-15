@@ -56,10 +56,12 @@ export default {
           to: '/user/settings',
         },
       ],
-      paletteIcon: mdiPalette,
-      accountCircleIcon: mdiAccountCircle,
-      accountCogIcon: mdiAccountCog,
-      logoutIcon: mdiLogout,
+      icons: {
+        paletteIcon: mdiPalette,
+        accountCircleIcon: mdiAccountCircle,
+        accountCogIcon: mdiAccountCog,
+        logoutIcon: mdiLogout,
+      },
     }
   },
   head() {
@@ -88,7 +90,7 @@ export default {
   <v-app>
     <notifier></notifier>
     <v-app-bar app absolute dark color="green darken-2">
-      <v-app-bar-title v-text="title" />
+      <v-app-bar-title>{{ title }}</v-app-bar-title>
       <v-spacer />
       <v-btn v-for="item of drawerItems" :key="item.title" :to="item.to" text>{{
         item.title
@@ -96,7 +98,7 @@ export default {
       <v-menu>
         <template #activator="{ on, attrs }">
           <v-btn icon v-bind="attrs" v-on="on">
-            <v-icon>{{ paletteIcon }}</v-icon>
+            <v-icon>{{ icons.paletteIcon }}</v-icon>
           </v-btn>
         </template>
         <v-list>
@@ -123,7 +125,7 @@ export default {
                 :src="profilePicture"
                 alt="profile picture"
               ></v-img>
-              <v-icon v-else>{{ accountCircleIcon }}</v-icon>
+              <v-icon v-else>{{ icons.accountCircleIcon }}</v-icon>
             </v-avatar>
           </v-btn>
         </template>
@@ -131,7 +133,7 @@ export default {
           <v-list>
             <v-list-item>
               <v-list-item-icon>
-                <v-icon>{{ accountCogIcon }}</v-icon>
+                <v-icon>{{ icons.accountCogIcon }}</v-icon>
               </v-list-item-icon>
               <v-list-item-title>
                 <v-btn text color="primary" to="/user/settings#user-info"
@@ -141,7 +143,7 @@ export default {
             </v-list-item>
             <v-list-item>
               <v-list-item-icon>
-                <v-icon>{{ logoutIcon }}</v-icon>
+                <v-icon>{{ icons.logoutIcon }}</v-icon>
               </v-list-item-icon>
               <v-list-item-title>
                 <v-btn text color="error" @click="onLogout">ອອກຈາກລະບົບ</v-btn>
