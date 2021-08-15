@@ -3,8 +3,6 @@ import * as Cookies from 'js-cookie'
 import cookie from 'cookie'
 
 export default ({ store, req }) => {
-  // eslint-disable-next-line no-console
-  console.log(`NODE_ENV: ${process.env.NODE_ENV}`)
   createPersistedState({
     paths: [
       'user.auth.id',
