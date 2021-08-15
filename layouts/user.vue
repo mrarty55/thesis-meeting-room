@@ -67,6 +67,11 @@ export default {
       titleTemplate: '%s - ຮ້ານກາເຟວະລີ',
     }
   },
+  computed: {
+    profilePicture() {
+      return this.$store.state.user.auth.image
+    },
+  },
   watch: {
     '$colorMode.value'() {
       this.$vuetify.theme.dark = this.$colorMode.value === 'dark'
@@ -114,8 +119,8 @@ export default {
           <v-btn icon v-on="on">
             <v-avatar>
               <v-img
-                v-if="$store.state.user.auth.image"
-                :src="$store.state.user.auth.image"
+                v-if="profilePicture"
+                :src="profilePicture"
                 alt="profile picture"
               ></v-img>
               <v-icon v-else>{{ accountCircleIcon }}</v-icon>
