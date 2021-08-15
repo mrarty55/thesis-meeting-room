@@ -33,7 +33,6 @@ export default {
       this.$store.dispatch('user/booking/uploadDepositStatement')
     },
     onSkip() {
-      this.$store.commit('user/booking/clear')
       this.$router.push('/user/service/booking/success')
     },
     async onSelectPicture(file) {

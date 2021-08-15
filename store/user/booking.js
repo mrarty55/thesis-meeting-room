@@ -1,4 +1,5 @@
 import minimumDate from '~/utils/date'
+import { generateContract, generateQuotation } from '~/utils/pdf'
 
 export const state = () => ({
   bookingId: '',
@@ -284,6 +285,74 @@ export const actions = {
           break
       }
       commit('error', message)
+    }
+  },
+  async generateContract({ state, rootState }) {
+    try {
+      const response = await this.$axios.$get('/users', {
+        headers: {
+          common: {
+            Authorization: `Bearer ${rootState.user.auth.token}`,
+          },
+        },
+      })
+      const customer = response.customer
+      const data = {
+        id: state.bookingId,
+        customer,
+        eventTitle: state.eventTitle,
+        eventType: state.eventType,
+        eventDate: state.eventDate,
+        eventStartTime: state.eventStartTime,
+        eventEndTime: state.eventEndTime,
+        rooms: state.rooms,
+        roomStyle: state.roomStyle,
+        table: state.table,
+        chair: state.chair,
+        equipments: state.equipments,
+        drinks: state.drinks,
+        additionalNote: state.additionalNote,
+      }
+      generateContract(data)
+    } catch (error) {
+      const message = error.response?.message || error.message || '-'
+      this.$notifier.showMessage({
+        message: `ມີຂໍ້ຜິດພາດເກີດຂຶ້ນ: ${message}`,
+        color: 'error',
+      })
+    }
+  },
+  async generateQuotation({ state, getters, rootState }) {
+    try {
+      const response = await this.$axios.$get('/users', {
+        headers: {
+          common: {
+            Authorization: `Bearer ${rootState.user.auth.token}`,
+          },
+        },
+      })
+      const customer = response.customer
+      const data = {
+        customer,
+        eventTitle: state.eventTitle,
+        eventDate: state.eventDate,
+        eventStartTime: state.eventStartTime,
+        eventEndTime: state.eventEndTime,
+        rooms: state.rooms,
+        equipments: state.equipments,
+        drinks: state.drinks,
+        total: getters.total,
+        roomSubtotal: getters.roomSubtotal,
+        drinkSubtotal: getters.drinkSubtotal,
+        deposit: getters.deposit,
+      }
+      generateQuotation(data)
+    } catch (error) {
+      const message = error.response?.message || error.message || '-'
+      this.$notifier.showMessage({
+        message: `ມີຂໍ້ຜິດພາດເກີດຂຶ້ນ: ${message}`,
+        color: 'error',
+      })
     }
   },
 }

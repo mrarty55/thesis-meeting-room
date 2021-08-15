@@ -11,6 +11,18 @@ export default {
       title: this.title,
     }
   },
+  methods: {
+    onPrintContract() {
+      this.$store.dispatch('user/booking/generateContract')
+    },
+    onPrintQuotation() {
+      this.$store.dispatch('user/booking/generateQuotation')
+    },
+    onBackToMainMenu() {
+      this.$store.commit('user/booking/clear')
+      this.$router.push('/user/service')
+    },
+  },
 }
 </script>
 <template>
@@ -31,9 +43,13 @@ export default {
               ໃບສະເໜີລາຄາໄດ້ທີ່ເມນູດ້ານລຸ່ມນີ້:
             </p>
             <v-card-actions>
-              <v-btn color="primary">ຮັບສັນຍາການຈອງ</v-btn>
-              <v-btn color="primary">ຮັບໃບສະເໜິີລາຄາ</v-btn>
-              <v-btn text color="primary" to="/user/service" exact
+              <v-btn color="primary" @click="onPrintContract"
+                >ຮັບສັນຍາການຈອງ</v-btn
+              >
+              <v-btn color="primary" @click="onPrintQuotation"
+                >ຮັບໃບສະເໜິີລາຄາ</v-btn
+              >
+              <v-btn text color="primary" @click="onBackToMainMenu"
                 >ກັບໄປທີ່ເມນູຫຼັກ</v-btn
               >
             </v-card-actions>
