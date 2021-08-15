@@ -314,7 +314,7 @@ export default {
                 <v-icon>{{ icons.accountCogIcon }}</v-icon>
               </v-list-item-icon>
               <v-list-item-title>
-                <v-btn text color="primary" to="/admins/settings"
+                <v-btn text color="primary" to="/admin/settings"
                   >ແກ້ໄຂຂໍ້ມູນຜູ້ໃຊ້</v-btn
                 >
               </v-list-item-title>
