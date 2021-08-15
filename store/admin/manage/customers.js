@@ -83,7 +83,7 @@ export const actions = {
     commit('toggleLoading', true)
     try {
       await this.$axios.$delete('/users', {
-        data: { id: payload.customerId },
+        data: payload.customer,
         headers: {
           common: {
             Authorization: `Bearer ${rootState.admin.auth.token}`,

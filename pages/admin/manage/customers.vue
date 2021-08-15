@@ -220,7 +220,7 @@ export default {
     onDeleteConfirm() {
       this.$store.dispatch('admin/manage/customers/deleteCustomer', {
         index: this.editIndex,
-        customerId: this.editIndex.id,
+        customer: this.editItem,
       })
     },
     closeDetailsDialog() {
