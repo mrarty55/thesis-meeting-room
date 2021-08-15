@@ -46,7 +46,7 @@ export default {
 </script>
 <template>
   <v-container>
-    <v-row justify="center">
+    <v-row justify="start">
       <v-col cols="12">
         <v-sheet>
           <h2>ລາຍການຫ້ອງ</h2>
@@ -78,39 +78,6 @@ export default {
               {{ room.shiftRate | numFormat('0,0[.]00') }} ກີບ
             </p>
           </v-card-text>
-        </v-card>
-      </v-col>
-      <v-col cols="12">
-        <v-card>
-          <v-card-title class="justify-space-between">
-            <v-btn icon @click="$refs.calendar.prev()">
-              <v-icon>{{ icons.leftIcon }}</v-icon>
-            </v-btn>
-            <span class="d-inline-flex">
-              <v-select
-                v-model="calendarType"
-                label="ຮູບແບບປະຕິທິນ"
-                :items="calendarTypes"
-                class="mx-4 shrink"
-              ></v-select>
-            </span>
-            <span v-if="$refs.calendar">
-              {{ `ປະຕິທິນວັນເວລາການຈອງເດືອນ${$refs.calendar.title}` }}
-            </span>
-            <span v-else>ປະຕິທິນວັນເວລາການຈອງ</span>
-            <v-btn icon @click="$refs.calendar.next()">
-              <v-icon>{{ icons.rightIcon }}</v-icon>
-            </v-btn>
-          </v-card-title>
-          <v-calendar
-            ref="calendar"
-            v-model="calendarModel"
-            :events="bookingSchedule"
-            :short-intervals="false"
-            :type="calendarType"
-            locale="lo-LA"
-          >
-          </v-calendar>
         </v-card>
       </v-col>
     </v-row>
