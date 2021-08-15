@@ -1,7 +1,6 @@
 <script>
 export default {
   layout: 'admin',
-  middleware: 'staff-only',
   data() {
     return {
       title: 'ປະຫວັດການແຈ້ງເຂົ້າ',

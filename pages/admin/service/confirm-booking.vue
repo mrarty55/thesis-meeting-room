@@ -14,7 +14,6 @@ import { required } from 'vuelidate/lib/validators'
 
 export default {
   layout: 'admin',
-  middleware: 'staff-only',
   data() {
     return {
       title: 'ຢືນຢັນການຈອງ',

@@ -15,7 +15,6 @@ import { generateReceipt } from '~/utils/pdf'
 
 export default {
   layout: 'admin',
-  middleware: 'staff-only',
   data() {
     return {
       title: 'ແຈ້ງເຂົ້າ',
