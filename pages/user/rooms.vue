@@ -46,7 +46,7 @@ export default {
 </script>
 <template>
   <v-container>
-    <v-row justify="center">
+    <v-row justify="start">
       <v-col cols="12">
         <v-sheet>
           <h2>ລາຍການຫ້ອງ</h2>
