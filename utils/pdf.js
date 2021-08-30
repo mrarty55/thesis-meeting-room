@@ -579,7 +579,7 @@ export function generateRevenueReport(data) {
     content: [
       { image: 'varee-cafe.jpg', width: 100, heigth: 100, alignment: 'center' },
       {
-        text: 'ລາຍງານການເຊົ່າ',
+        text: 'ລາຍງານລາຍຮັບ',
         bold: true,
         fontSize: 24,
         alignment: 'center',
